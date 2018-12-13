@@ -114,8 +114,13 @@ $(document).ready(()=>{
     $('.buuts_swiper > div').on('click', ()=>{
         doarSmallImg()
     })
-
+    
     if(width_wind_max_ph.matches){
+        $('.subDiesel a').on('click', ()=>{
+            $("body").removeClass('scrollNone')
+            $(".navBarLogist").removeClass("fixedNavBarLogist")
+            $('.subDiesel').slideUp()
+        })
         $(window).scroll(function (event) {
             var y = $(this).scrollTop();
             if (y >= 1200) {
@@ -142,27 +147,29 @@ $(document).ready(()=>{
         var topValue =  offset.top + elem.height();
         //var width = elem.width();
         $(window).scroll(function (event) {
-            var y = $(this).scrollTop();
-            if (y >= topValue) {
-                if (!$('nav').hasClass('navFixed')){
-                    $('.commonUlNav').addClass('container')
-                    $('nav').addClass('navFixed');
-                    $('.navFixed').css({
-                        top: '-60px'
-                    });
-                    // $(".scroll_logo").show();
-                    $('.navFixed').animate({
-                        top: '0'
-                        // width:widthHeader
-                    }, 500, function() {
-                    });
+            if(!width_wind_max_ph.matches){
+                var y = $(this).scrollTop();
+                if (y >= topValue) {
+                    if (!$('nav').hasClass('navFixed')){
+                        $('.commonUlNav').addClass('container')
+                        $('nav').addClass('navFixed');
+                        $('.navFixed').css({
+                            top: '-60px'
+                        });
+                        // $(".scroll_logo").show();
+                        $('.navFixed').animate({
+                            top: '0'
+                            // width:widthHeader
+                        }, 500, function() {
+                        });
+                    }
+                } else {
+                    $('nav').css({
+                        top: '25px'
+                    })
+                    $('.commonUlNav').removeClass('container')
+                    $('nav').removeClass('navFixed');
                 }
-            } else {
-                $('nav').css({
-                    top: '25px'
-                })
-                $('.commonUlNav').removeClass('container')
-                $('nav').removeClass('navFixed');
             }
         });
     }

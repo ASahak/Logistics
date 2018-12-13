@@ -743,7 +743,7 @@ ____________________________________________________ CONTACT PAGE START-________
     display: flex;
     margin-top: -20px;
     justify-content: space-between;
-    z-index: 222;
+    z-index: 22;
     position: relative;
 }
 .titleBar {
@@ -1114,6 +1114,9 @@ ____________________________________________________ GALLERY PAGE END __________
         overflow: hidden;
         position: relative;
     }   
+    .top_right_panel ul{
+        margin: 0;
+    }
     /* Home page */
     .phone_wrap, .addr_wrap{
         display: none;
